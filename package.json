@@ -1,0 +1,38 @@
+{
+  "name": "twitch-chatlog",
+  "version": "1.0.0",
+  "description": "Fetch the chat log to a twitch VOD.",
+  "main": "lib/index.js",
+  "bin": {
+    "twitch-chatlogs": "./bin/twitch-chatlogs"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "twitch",
+    "vod",
+    "log",
+    "chat",
+    "replay"
+  ],
+  "author": "Martin Giger (https://humanoids.be)",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "hex-to-color-name": "^1.0.1",
+    "node-fetch": "^1.5.3",
+    "yargs": "^4.8.1"
+  },
+  "repositiory": {
+    "type": "git",
+    "url": "git://github.com/freaktechnik/twitch-chatlog"
+  },
+  "website": "https://github.com/freaktechnik/twitch-chatlog",
+  "bugs": {
+    "url": "https://github.com/freaktechnik/twitch-chatlog/issues"
+  }
+}

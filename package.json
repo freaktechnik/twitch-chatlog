@@ -1,6 +1,6 @@
 {
   "name": "twitch-chatlog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetch the chat log to a twitch VOD.",
   "main": "lib/index.js",
   "bin": {
@@ -34,5 +34,6 @@
   "website": "https://github.com/freaktechnik/twitch-chatlog",
   "bugs": {
     "url": "https://github.com/freaktechnik/twitch-chatlog/issues"
-  }
+  },
+  "preferGlobal": true
 }

@@ -3,6 +3,7 @@
 const argv = require("yargs").usage("Fetch the chat log to a twitch VOD.\nUsage: $0 <vod_id>[ -c]\n\nvod_id is the ID from the VOD URL, prefixed with v.")
     .string("_")
     .demand(1)
+    .boolean("c")
     .describe('c', 'Colorize output')
     .help('h')
     .alias('h', 'help')

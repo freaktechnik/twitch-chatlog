@@ -1,0 +1,13 @@
+#! /usr/bin/env node
+
+const argv = require("yargs").usage("Fetch the chat log to a twitch VOD.\nUsage: $0 <vod_id>[ -c]\n\nvod_id is the ID from the VOD URL, prefixed with v.")
+    .string("_")
+    .demand(1)
+    .describe('c', 'Colorize output')
+    .help('h')
+    .alias('h', 'help')
+    .version()
+    .example("twitch-chatlog v79240813")
+    .argv;
+
+require("../lib/index.js").getChatlog(argv._[0], argv.c);

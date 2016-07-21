@@ -1,10 +1,10 @@
 {
   "name": "twitch-chatlog",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Fetch the chat log to a twitch VOD.",
   "main": "lib/index.js",
   "bin": {
-    "twitch-chatlogs": "./bin/twitch-chatlogs"
+    "twitch-chatlogs": "./bin/twitch-chatlog"
   },
   "engines": {
     "node": ">=4.0.0"

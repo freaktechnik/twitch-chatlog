@@ -31,7 +31,7 @@
     "type": "git",
     "url": "git://github.com/freaktechnik/twitch-chatlog"
   },
-  "website": "https://github.com/freaktechnik/twitch-chatlog",
+  "homepage": "https://github.com/freaktechnik/twitch-chatlog",
   "bugs": {
     "url": "https://github.com/freaktechnik/twitch-chatlog/issues"
   },

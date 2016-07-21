@@ -11,4 +11,7 @@ const argv = require("yargs").usage("Fetch the chat log to a twitch VOD.\nUsage:
     .example("twitch-chatlog v79240813")
     .argv;
 
-require("../lib/index.js").getChatlog(argv._[0], argv.c);
+require("../lib/index.js").getChatlog(argv._[0], argv.c).then(console.log).catch((e) => {
+    console.error(e);
+    process.exit(1);
+});

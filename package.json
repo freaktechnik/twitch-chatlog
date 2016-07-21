@@ -4,7 +4,7 @@
   "description": "Fetch the chat log to a twitch VOD.",
   "main": "lib/index.js",
   "bin": {
-    "twitch-chatlogs": "./bin/twitch-chatlog"
+    "twitch-chatlog": "./bin/twitch-chatlog"
   },
   "engines": {
     "node": ">=4.0.0"

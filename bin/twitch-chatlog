@@ -3,15 +3,26 @@
 const argv = require("yargs").usage("Fetch the chat log to a twitch VOD.\nUsage: $0 <vod_id>[ -c]\n\nvod_id is the ID from the VOD URL, prefixed with v.")
     .string("_")
     .demand(1)
-    .boolean("c")
-    .describe('c', 'Colorize output')
+    .env('TWITCH_CHATLOG')
+    .option('c', {
+        alias: 'color',
+        default: false,
+        describe: 'Colorize output',
+        type: 'boolean'
+    })
+    .option('C', {
+        alias: 'client-id',
+        default: 'hdaoisxhhrc9h3lz3k224iao13crkkq8',
+        describe: 'Twitch application client ID',
+        type: 'string'
+    })
     .help('h')
     .alias('h', 'help')
     .version()
     .example("twitch-chatlog v79240813")
     .argv;
 
-require("../lib/index.js").getChatlog(argv._[0], argv.c).then(console.log).catch((e) => {
+require("../lib/index.js").getChatlog(argv._[0], argv.color, argv.clientId).then(console.log).catch((e) => {
     console.error(e);
     process.exit(1);
 });

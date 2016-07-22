@@ -27,7 +27,7 @@
     "node-fetch": "^1.5.3",
     "yargs": "^4.8.1"
   },
-  "repositiory": {
+  "repository": {
     "type": "git",
     "url": "git://github.com/freaktechnik/twitch-chatlog"
   },

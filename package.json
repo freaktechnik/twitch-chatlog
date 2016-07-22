@@ -1,7 +1,7 @@
 {
   "name": "twitch-chatlog",
   "version": "1.2.1",
-  "description": "Fetch the chat log to a twitch VOD.",
+  "description": "Fetch the chat log to a Twitch VOD.",
   "main": "lib/index.js",
   "bin": {
     "twitch-chatlog": "./bin/twitch-chatlog"

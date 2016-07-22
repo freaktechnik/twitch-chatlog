@@ -1,4 +1,6 @@
 # twitch-chatlog
+![Dependencies](https://david-dm.org/freaktechnik/twitch-chatlog.svg)
+
 Fetch the chatlog to a Twitch VOD from your command line with `twitch-chatlog`.
 
 This little command can download the whole chat log to a twitch VOD. It takes the ID of the VOD (v1111111 or similar) as only argument. To learn about the usage of the command, use `twitch-chatlog -h`.

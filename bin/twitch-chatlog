@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage: $0 <vod_id>[ -c][ -C <client_id>]\n\nvod_id is the ID from the VOD URL, prefixed with v.")
+const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage: $0 <vod_id>\n\nvod_id is the ID from the VOD URL, prefixed with v.")
     .string("_")
     .demand(1)
     .env('TWITCH_CHATLOG')
@@ -13,8 +13,10 @@ const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage:
     .option('C', {
         alias: 'client-id',
         default: 'hdaoisxhhrc9h3lz3k224iao13crkkq8',
+        defaultDescription: '(Client-ID)',
         describe: 'Twitch application client ID',
-        type: 'string'
+        type: 'string',
+        nargs: 1
     })
     .option('p', {
         alias: 'progress',
@@ -22,10 +24,33 @@ const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage:
         describe: 'Show a progress bar while loading the log',
         type: 'boolean'
 	})
+	.option('l', {
+	    alias: 'length',
+	    default: 600,
+	    defaultDescription: '(10 min)',
+	    describe: 'Amount of time from the log to fetch in seconds. Gets shortened to the VOD length if bigger. 0 loads everything but is not recommended. The output will run until the next end of a log fragment.',
+	    type: 'number',
+	    nargs: 1
+    })
+    .option('s', {
+        alias: 'start',
+        default: '00:00:00',
+        describe: 'Start time. Can either be a time relative to the VOD start or actual time.',
+        type: 'string',
+        nargs: 1
+    })
+    .option('e', {
+        alias: 'end',
+        describe: 'End time. Alternative to specifying a length. A time like for start.',
+        type: 'string',
+        nargs: 1
+    })
     .help('h')
     .alias('h', 'help')
     .version()
-    .example("twitch-chatlog v79240813")
+    .example("$0 v79240813", "Load the first ten minutes of chat for the VOD https://twitch.tv/ec0ke/v/79040813")
+    .example("$0 -c --end 00:15:00 v79240813", "Load the first 15 minutes of chat for the VOD and colorize the output.")
+    .example("$0 v79240813 --no-progress --end=2016-07-20T20:37:44+0000", "Load the chat log until the given date and don't show a progress bar.")
     .argv;
 
 var program = require("../lib/");
@@ -34,7 +59,10 @@ program.getChatlog({
     vodId: argv._[0],
     colorize: argv.color,
     clientId: argv.clientId,
-    progress: argv.progress
+    progress: argv.progress,
+    start: argv.start,
+    end: argv.end,
+    length: argv.length
 }).then((results) => {
     return program.printResults(results, argv.color);
 }).then(console.log).catch((e) => {

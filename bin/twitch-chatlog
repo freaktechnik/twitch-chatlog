@@ -16,13 +16,19 @@ const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage:
         describe: 'Twitch application client ID',
         type: 'string'
     })
+    .option('p', {
+        alias: 'progress',
+        default: true,
+        describe: 'Show a progress bar while loading the log',
+        type: 'boolean'
+	})
     .help('h')
     .alias('h', 'help')
     .version()
     .example("twitch-chatlog v79240813")
     .argv;
 
-require("../lib/").getChatlog(argv._[0], argv.color, argv.clientId).then(console.log).catch((e) => {
+require("../lib/").getChatlog(argv._[0], argv.color, argv.clientId, argv.progress).then(console.log).catch((e) => {
     console.error(e);
     process.exit(1);
 });

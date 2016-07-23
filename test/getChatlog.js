@@ -42,13 +42,60 @@ test.before(() => {
 
 test("Test getting message", async function(t) {
     const result = await getChatlog({
-        vodId: "v79240813",
+        vodId: vod._id,
         start: 0,
         length: 30
     });
 
     t.is(result.length, 1);
     t.deepEqual(result, rechatMessage.data);
+});
+
+test("Getting multiple fragments using length", async function(t) {
+    const result = await getChatlog({
+        vodId: vod._id,
+        start: 0,
+        length: 60
+    });
+
+    t.is(result.length, 2);
+});
+
+test("Getting a partial fragment returns the whole fragment", async function(t) {
+    const result = await getChatlog({
+        vodId: vod._id,
+        start: 0,
+        length: 45
+    });
+
+    t.is(result.length, 2);
+});
+
+test("Getting a partial log based on relative end", async function(t) {
+    const result = await getChatlog({
+        vodId: vod._id,
+        end: "00:03:00"
+    });
+    
+    t.is(result.length, 6);
+});
+
+test("Getting a partial log based on relative start and end", async function(t) {
+    const result = await getChatlog({
+        vodId: vod._id,
+        start: "00:01:00",
+        end: "00:03:00"
+    });
+
+    t.is(result.length, 4);
+});
+
+test("Getting all fragments to a vod", async function(t) {
+    const result = await getChatlog({
+        vodId: vod._id
+    });
+
+    t.is(result.length, Math.ceil(vod.length/30));
 });
 
 test("VOD ID validation rejects numbers", (t) => {

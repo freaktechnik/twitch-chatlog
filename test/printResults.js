@@ -226,7 +226,6 @@ const testData = [
 ];
 
 const testFunction = (t, data) => {
-    t.plan(1);
     const testMessages = data.messages.map((attributes) => ({ attributes }));
     t.is(printResults(testMessages, data.color), data.expectedResult);
 };

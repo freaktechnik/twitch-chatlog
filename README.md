@@ -1,5 +1,5 @@
 # twitch-chatlog
-[![Build Status](https://travis-ci.org/freaktechnik/twitch-chatlog.svg?branch=master)](https://travis-ci.org/freaktechnik/twitch-chatlog) ![codecov](https://codecov.io/gh/freaktechnik/twitch-chatlog/branch/master/graph/badge.svg)](https://codecov.io/gh/freaktechnik/twitch-chatlog) ![Dependencies](https://david-dm.org/freaktechnik/twitch-chatlog.svg)
+[![Build Status](https://travis-ci.org/freaktechnik/twitch-chatlog.svg?branch=master)](https://travis-ci.org/freaktechnik/twitch-chatlog) [![codecov](https://codecov.io/gh/freaktechnik/twitch-chatlog/branch/master/graph/badge.svg)](https://codecov.io/gh/freaktechnik/twitch-chatlog) ![Dependencies](https://david-dm.org/freaktechnik/twitch-chatlog.svg)
 
 Fetch the chatlog to a Twitch VOD from your command line with `twitch-chatlog`.
 

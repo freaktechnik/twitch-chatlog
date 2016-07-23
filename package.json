@@ -10,7 +10,8 @@
     "node": ">=5.11.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc ava",
+    "upload-coverage": "nyc report --reporter=test-lcov | codecov"
   },
   "keywords": [
     "twitch",
@@ -36,5 +37,9 @@
   "bugs": {
     "url": "https://github.com/freaktechnik/twitch-chatlog/issues"
   },
-  "preferGlobal": true
+  "preferGlobal": true,
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "nyc": "^7.0.0"
+  }
 }

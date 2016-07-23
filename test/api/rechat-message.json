@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "type": "rechat-message",
+            "attributes": {
+                "message": "with havoc physics?",
+                "from": "freaktechnik",
+                "timestamp": 1469047054725,
+                "tags": {
+                    "display-name": "freaktechnik",
+                    "color": "#FFC400"
+                },
+                "color": "#FFC400"
+            },
+            "_links": {
+                "self": "/rechat-message/chat-29-2016:AVYKB18Yl6zR4Ll_XwvD"
+            }
+        }
+    ]
+}

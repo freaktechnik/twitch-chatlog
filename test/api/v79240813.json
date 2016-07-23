@@ -1,0 +1,37 @@
+{
+    "title":"109 Columne attack",
+    "description":"after the Stuka flyout we got into G2s and went for soft targets, with an aprupt ending ;)",
+    "broadcast_id":22430518032,
+    "broadcast_type":"highlight",
+    "status":"recorded",
+    "tag_list":"",
+    "views":1,
+    "created_at":"2016-07-21T16:12:24Z",
+    "url":"https://secure.twitch.tv/ec0ke/v/79240813",
+    "_id":"v79240813",
+    "recorded_at":"2016-07-20T20:22:02Z",
+    "game":"War Thunder",
+    "length":1995,
+    "preview":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-320x240.jpg",
+    "animated_preview":"https://vod-storyboards.twitch.tv/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756/storyboards/79240813-gif.gif",
+    "thumbnails":[
+        {
+            "url":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-320x240.jpg",
+            "type":"generated"
+        }
+    ],
+    "fps":{
+        "chunked":59.9999955573823
+    },
+    "resolutions":{
+        "chunked":"1280x720"
+    },
+    "_links":{
+        "self":"https://api.twitch.tv/kraken/videos/v79240813",
+        "channel":"https://api.twitch.tv/kraken/channels/ec0ke"
+    },
+    "channel":{
+        "name":"ec0ke",
+        "display_name":"Ec0ke"
+    }
+}

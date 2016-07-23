@@ -41,10 +41,13 @@
   "preferGlobal": true,
   "devDependencies": {
     "ava": "^0.15.2",
+    "babel-eslint": "^6.1.2",
     "codecov": "^1.0.1",
     "eslint": "^3.1.1",
     "eslint-plugin-ava": "^2.5.0",
+    "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-jsdoc": "^2.3.1",
+    "mock-json-api": "^0.1.2",
     "nyc": "^7.0.0"
   }
 }

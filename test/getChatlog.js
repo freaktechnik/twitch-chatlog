@@ -117,46 +117,6 @@ test("Getting all fragments to a vod", async function(t) {
     t.is(result.length, Math.ceil(vod.length/30));
 });
 
-test("VOD ID validation rejects numbers", (t) => {
-    return t.throws(getChatlog({
-        vodId: 79240813
-    }));
-});
-
-test("VOD ID validation rejects numbers only string", (t) => {
-    return t.throws(getChatlog({
-        vodId: "79240813"
-    }));
-});
-
-test("Invalid start time format rejects", (t) => {
-    return t.throws(getChatlog({
-        vodId: vod._id,
-        start: "0400"
-    }));
-});
-
-test("Invalid end time format rejects", (t) => {
-    return t.throws(getChatlog({
-        vodId: vod._id,
-        end: "0400"
-    }));
-});
-
-test("Invalid start time date format rejects", (t) => {
-    return t.throws(getChatlog({
-        vodId: vod._id,
-        start: "2016-32-32T16:75:00+0000"
-    }));
-});
-
-test("Invalid end time date format rejects", (t) => {
-    return t.throws(getChatlog({
-        vodId: vod._id,
-        end: "2016-32-32T26:00:16+3200"
-    }));
-});
-
 test.after(() => {
     s.close();
     process.env.TEST = false

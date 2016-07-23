@@ -76,7 +76,7 @@ test("Getting a partial log based on relative end", async function(t) {
         vodId: vod._id,
         end: "00:03:00"
     });
-    
+
     t.is(result.length, 6);
 });
 
@@ -88,6 +88,16 @@ test("Getting a partial log based on relative start and end", async function(t) 
     });
 
     t.is(result.length, 4);
+});
+
+test("Getting a partial log based on absolute start and relative end", async function(t) {
+    const result = await getChatlog({
+        vodId: vod._id,
+        start: new Date(Date.parse(vod.recorded_at)+60000).toString(),
+        end: "00:03:20"
+    });
+
+    t.is(result.length, 5);
 });
 
 test("Getting all fragments to a vod", async function(t) {

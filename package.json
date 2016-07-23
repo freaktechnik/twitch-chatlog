@@ -10,8 +10,9 @@
     "node": ">=5.11.0"
   },
   "scripts": {
-    "test": "nyc ava",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "test": "npm run lint && nyc ava",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "eslint lib/ bin/ test/"
   },
   "keywords": [
     "twitch",
@@ -41,6 +42,9 @@
   "devDependencies": {
     "ava": "^0.15.2",
     "codecov": "^1.0.1",
+    "eslint": "^3.1.1",
+    "eslint-plugin-ava": "^2.5.0",
+    "eslint-plugin-jsdoc": "^2.3.1",
     "nyc": "^7.0.0"
   }
 }

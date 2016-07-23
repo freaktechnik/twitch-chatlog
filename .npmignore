@@ -1,0 +1,7 @@
+node_modules
+.git*
+.eslintrc*
+test
+*~
+coverage
+.nyc_output

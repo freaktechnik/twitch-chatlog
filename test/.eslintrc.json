@@ -1,0 +1,23 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 7,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "ava"
+    ],
+    "rules": {
+        "jsdoc/check-param-names": 0,
+        "jsdoc/check-tag-names": 0,
+        "jsdoc/check-types": 0,
+        "jsdoc/newline-after-description": 0,
+        "jsdoc/require-description-complete-sentence": 0,
+        "jsdoc/require-hyphen-before-param-description": 0,
+        "jsdoc/require-param": 0,
+        "jsdoc/require-param-type": 0,
+        "jsdoc/require-param-description": 0,
+        "jsdoc/require-returns-type": 0,
+        "jsdoc/require-returns-description": 0
+    },
+    "extends": "plugin:ava/recommended"
+}

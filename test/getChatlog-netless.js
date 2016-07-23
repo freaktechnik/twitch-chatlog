@@ -1,6 +1,8 @@
 import test from 'ava';
 import { getChatlog } from '../lib';
 
+// getChatlog tests that don't make any calls to the Twitch API
+
 test("VOD ID validation rejects numbers", (t) => {
     return t.throws(getChatlog({
         vodId: 79240813

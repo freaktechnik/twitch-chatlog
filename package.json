@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "nyc ava",
-    "upload-coverage": "nyc report --reporter=test-lcov | codecov"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "keywords": [
     "twitch",

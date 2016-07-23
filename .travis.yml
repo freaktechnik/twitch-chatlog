@@ -1,4 +1,4 @@
 sudo: false
 language: node_js
 node_js: stable
-after_success: npm run upload-coverage
+after_success: npm run coverage

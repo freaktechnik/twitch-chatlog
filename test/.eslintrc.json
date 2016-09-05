@@ -1,27 +1,3 @@
 {
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaVersion": 7,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "ava",
-        "babel"
-    ],
-    "rules": {
-        "jsdoc/check-param-names": 0,
-        "jsdoc/check-tag-names": 0,
-        "jsdoc/check-types": 0,
-        "jsdoc/newline-after-description": 0,
-        "jsdoc/require-description-complete-sentence": 0,
-        "jsdoc/require-hyphen-before-param-description": 0,
-        "jsdoc/require-param": 0,
-        "jsdoc/require-param-type": 0,
-        "jsdoc/require-param-description": 0,
-        "jsdoc/require-returns-type": 0,
-        "jsdoc/require-returns-description": 0,
-        "babel/arrow-parens": 1,
-        "babel/generator-star-spacing": 1
-    },
-    "extends": "plugin:ava/recommended"
+    "extends": "plugin:freaktechnik/test"
 }

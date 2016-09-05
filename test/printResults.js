@@ -1,5 +1,6 @@
 import test from 'ava';
 import { printResults } from '../lib/';
+// eslint-disable-next-line
 import colors from 'colors';
 
 const date = new Date();
@@ -67,7 +68,7 @@ const testData = [
         ],
         name: 'colored message with default colors',
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".yellow.bold+" foo bar"
+        expectedResult: timeSection.grey + " " + "<test>".yellow.bold + " foo bar"
     },
     {
         messages: [
@@ -88,8 +89,8 @@ const testData = [
         ],
         name: 'colored messages with set user color',
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".white.bold+" foo\n"+
-                        timeSection.grey+" "+"<test>".black.bold+" bar"
+        expectedResult: timeSection.grey + " " + "<test>".white.bold + " foo\n" +
+                        timeSection.grey + " " + "<test>".black.bold + " bar"
     },
     {
         messages: [
@@ -103,7 +104,7 @@ const testData = [
         ],
         name: "Test white nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".white.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".white.bold + " foo"
     },
     {
         messages: [
@@ -117,7 +118,7 @@ const testData = [
         ],
         name: "Test black nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".black.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".black.bold + " foo"
     },
     {
         messages: [
@@ -131,7 +132,7 @@ const testData = [
         ],
         name: "Test grey nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".grey.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".grey.bold + " foo"
     },
     {
         messages: [
@@ -145,7 +146,7 @@ const testData = [
         ],
         name: "Test red nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".red.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".red.bold + " foo"
     },
     {
         messages: [
@@ -159,7 +160,7 @@ const testData = [
         ],
         name: "Test green nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".green.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".green.bold + " foo"
     },
     {
         messages: [
@@ -173,7 +174,7 @@ const testData = [
         ],
         name: "Test blue nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".blue.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".blue.bold + " foo"
     },
     {
         messages: [
@@ -187,7 +188,7 @@ const testData = [
         ],
         name: "Test yellow nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".yellow.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".yellow.bold + " foo"
     },
     {
         messages: [
@@ -201,7 +202,7 @@ const testData = [
         ],
         name: "Test magenta nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".magenta.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".magenta.bold + " foo"
     },
     {
         messages: [
@@ -215,7 +216,7 @@ const testData = [
         ],
         name: "Test cyan nick color",
         color: true,
-        expectedResult: timeSection.grey+" "+"<test>".cyan.bold+" foo"
+        expectedResult: timeSection.grey + " " + "<test>".cyan.bold + " foo"
     },
     {
         messages: [],

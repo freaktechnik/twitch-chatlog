@@ -58,6 +58,36 @@ test("Getting multiple fragments using length", async function(t) {
     await closeServer(server);
 });
 
+test("Getting multiple fragments with more workers", async function(t) {
+    const server = await createServer();
+    const result = await getChatlog({
+        vodId: vod._id,
+        start: 0,
+        length: 60,
+        testServer: server.address(),
+        requests: 3
+    });
+
+    t.is(result.length, 2);
+
+    await closeServer(server);
+});
+
+test("Getting multiple fragments with less workers", async function(t) {
+    const server = await createServer();
+    const result = await getChatlog({
+        vodId: vod._id,
+        start: 0,
+        length: 160,
+        testServer: server.address(),
+        requests: 2
+    });
+
+    t.is(result.length, 6);
+
+    await closeServer(server);
+});
+
 test("Getting a partial fragment returns the whole fragment", async function(t) {
     const server = await createServer();
     const result = await getChatlog({
@@ -103,7 +133,7 @@ test("Getting a partial log based on absolute start and relative end", async fun
     const server = await createServer();
     const result = await getChatlog({
         vodId: vod._id,
-        start: new Date(Date.parse(vod.recorded_at)+60000).toString(),
+        start: new Date(Date.parse(vod.recorded_at) + 60000).toString(),
         end: "00:03:20",
         testServer: server.address()
     });
@@ -117,7 +147,7 @@ test("Getting a partial log based on absolute end", async function(t) {
     const server = await createServer();
     const result = await getChatlog({
         vodId: vod._id,
-        end: new Date(Date.parse(vod.recorded_at)+60000).toString(),
+        end: new Date(Date.parse(vod.recorded_at) + 60000).toString(),
         testServer: server.address()
     });
 
@@ -133,7 +163,7 @@ test("Getting all fragments to a vod", async function(t) {
         testServer: server.address()
     });
 
-    t.is(result.length, Math.ceil(vod.length/30));
+    t.is(result.length, Math.ceil(vod.length / 30));
 
     await closeServer(server);
 });

@@ -24,6 +24,7 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "colors": "^1.1.2",
     "hex-to-color-name": "^1.0.1",
     "node-fetch": "^1.5.3",

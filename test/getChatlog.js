@@ -29,7 +29,10 @@ const closeServer = (server) => {
     return new Promise((resolve) => server.close(resolve));
 };
 
-test("Test getting message", async function(t) {
+test.todo("Messages are returned in descending time order with one worker");
+test.todo("Messages are increasing in time with multiple workers");
+
+test("Getting message", async function(t) {
     const server = await createServer();
     const result = await getChatlog({
         vodId: vod._id,

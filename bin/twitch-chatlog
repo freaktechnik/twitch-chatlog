@@ -55,7 +55,7 @@ const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage:
     .help('h')
     .alias('h', 'help')
     .version()
-    .example("$0 v79240813", "Load the first ten minutes of chat for the VOD https://twitch.tv/ec0ke/v/79040813")
+    .example("$0 v79240813", "Load the first ten minutes of chat for the VOD https://twitch.tv/ec0ke/v/79240813")
     .example("$0 -c --end 00:15:00 v79240813", "Load the first 15 minutes of chat for the VOD and colorize the output.")
     .example("$0 v79240813 --no-progress --end=2016-07-20T20:37:44+0000", "Load the chat log until the given date and don't show a progress bar.")
     .argv;

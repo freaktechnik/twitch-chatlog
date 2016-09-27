@@ -50,3 +50,10 @@ Examples:
   --end=2016-07-20T20:37:44+0000            date and don't show a progress bar.
 
 ```
+
+## Similar Projects
+ - https://github.com/PetterKraabol/Twitch-Chat-Downloader
+ - https://github.com/bibby/itch
+ 
+## Disclaimer
+This program uses an inofficial Twitch API that may stop working at any point. It also potentially sends a lot of requests in quick succession, which might lead to Twitch taking measures against it and thus the program and/or your Twitch experience being reduced.

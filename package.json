@@ -40,7 +40,7 @@
   },
   "preferGlobal": true,
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.17.0",
     "codecov": "^1.0.1",
     "eslint": "^3.1.1",
     "eslint-plugin-freaktechnik": "^2.0.0",

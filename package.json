@@ -1,6 +1,6 @@
 {
   "name": "twitch-chatlog",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Fetch the chat log to a Twitch VOD.",
   "main": "lib/index.js",
   "bin": {
@@ -42,7 +42,7 @@
   "devDependencies": {
     "ava": "^0.17.0",
     "codecov": "^1.0.1",
-    "eslint": "^3.1.1",
+    "eslint": "^3.13.0",
     "eslint-plugin-freaktechnik": "^2.0.0",
     "express": "^4.14.0",
     "nyc": "^10.0.0"

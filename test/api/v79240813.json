@@ -1,37 +1,63 @@
 {
     "title":"109 Columne attack",
     "description":"after the Stuka flyout we got into G2s and went for soft targets, with an aprupt ending ;)",
+    "description_html":"after the Stuka flyout we got into G2s and went for soft targets, with an aprupt ending ;)<br>",
     "broadcast_id":22430518032,
     "broadcast_type":"highlight",
     "status":"recorded",
     "tag_list":"",
-    "views":1,
-    "created_at":"2016-07-21T16:12:24Z",
-    "url":"https://secure.twitch.tv/ec0ke/v/79240813",
+    "views":3,
+    "url":"https://www.twitch.tv/ec0ke/v/79240813",
+    "language":"en",
+    "viewable":"public",
+    "viewable_at":null,
     "_id":"v79240813",
-    "recorded_at":"2016-07-20T20:22:02Z",
     "game":"War Thunder",
     "length":1995,
-    "preview":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-320x240.jpg",
-    "animated_preview":"https://vod-storyboards.twitch.tv/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756/storyboards/79240813-gif.gif",
-    "thumbnails":[
-        {
-            "url":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-320x240.jpg",
-            "type":"generated"
-        }
-    ],
+    "preview":{
+        "small":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-80x45.jpg",
+        "medium":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-320x180.jpg",
+        "large":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-640x360.jpg",
+        "template":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-{width}x{height}.jpg"
+    },
+    "thumbnails":{
+        "small":[
+            {
+                "url":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-80x45.jpg",
+                "type":"generated"
+            }
+        ],
+        "medium":[
+            {
+                "url":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-320x180.jpg",
+                "type":"generated"
+            }
+        ],
+        "large":[
+            {
+                "url":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-640x360.jpg",
+                "type":"generated"
+            }
+        ],
+        "template":[
+            {
+                "url":"https://static-cdn.jtvnw.net/v1/AUTH_system/vods_3bbf/ec0ke_22430518032_487971756//thumb/thumb79240813-{width}x{height}.jpg",
+                "type":"generated"
+            }
+        ]
+    },
     "fps":{
         "chunked":59.9999955573823
     },
     "resolutions":{
         "chunked":"1280x720"
     },
-    "_links":{
-        "self":"https://api.twitch.tv/kraken/videos/v79240813",
-        "channel":"https://api.twitch.tv/kraken/channels/ec0ke"
-    },
+    "created_at":"2016-07-21T16:12:24Z",
+    "published_at":"2016-07-21T16:12:24Z",
     "channel":{
         "name":"ec0ke",
-        "display_name":"Ec0ke"
-    }
+        "display_name":"Ec0ke",
+        "_id":72084450
+    },
+    "muted_segments":null
 }

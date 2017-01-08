@@ -3,7 +3,7 @@
 
 Fetch the chatlog to a Twitch VOD from your command line with `twitch-chatlog`.
 
-This little command can download the whole chat log to a twitch VOD. It takes the ID of the VOD (v1111111 or similar) as only argument. To learn about the usage of the command, use `twitch-chatlog -h`.
+This little command can download the whole chat log to a twitch VOD. It takes the ID of the VOD (1111111 or similar) as only argument. To learn about the usage of the command, use `twitch-chatlog -h`.
 
 The output can optionally be colored with `-c` or `--color` or by setting an environment variable `TWITCH_CHATLOG_COLOR`. To disable the loading progress bar, set `--no-progress` or `TWITCH_CHATLOG_PROGRESS` to false.
 
@@ -21,7 +21,7 @@ npm install -g twitch-chatlog
 Fetch the chat log to a Twitch VOD.
 Usage: twitch-chatlog <vod_id>
 
-vod_id is the ID from the VOD URL, prefixed with v.
+vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).
 
 Options:
   -c, --color      Colorize output                    [boolean] [default: false]
@@ -41,12 +41,12 @@ Options:
   --version        Show version number                                 [boolean]
 
 Examples:
-  twitch-chatlog v79240813                  Load the first ten minutes of chat
+  twitch-chatlog 79240813                   Load the first ten minutes of chat
                                             for the VOD
                                             https://twitch.tv/ec0ke/v/79040813
-  twitch-chatlog -c --end 00:15:00          Load the first 15 minutes of chat
-  v79240813                                 for the VOD and colorize the output.
-  twitch-chatlog v79240813 --no-progress    Load the chat log until the given
+  twitch-chatlog -c --end 00:15:00 79240813 Load the first 15 minutes of chat
+                                            for the VOD and colorize the output.
+  twitch-chatlog 79240813 --no-progress     Load the chat log until the given
   --end=2016-07-20T20:37:44+0000            date and don't show a progress bar.
 
 ```
@@ -54,6 +54,6 @@ Examples:
 ## Similar Projects
  - https://github.com/PetterKraabol/Twitch-Chat-Downloader
  - https://github.com/bibby/itch
- 
+
 ## Disclaimer
-This program uses an inofficial Twitch API that may stop working at any point. It also potentially sends a lot of requests in quick succession, which might lead to Twitch taking measures against it and thus the program and/or your Twitch experience being reduced.
+This program uses an unofficial Twitch API that may stop working at any point. It also potentially sends a lot of requests in quick succession, which might lead to Twitch taking measures against it and thus the program and/or your Twitch experience being reduced.

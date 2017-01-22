@@ -1,4 +1,6 @@
 # twitch-chatlog
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/freaktechnik/twitch-chatlog.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/freaktechnik/twitch-chatlog.svg?branch=master)](https://travis-ci.org/freaktechnik/twitch-chatlog) [![codecov](https://codecov.io/gh/freaktechnik/twitch-chatlog/branch/master/graph/badge.svg)](https://codecov.io/gh/freaktechnik/twitch-chatlog) ![Dependencies](https://david-dm.org/freaktechnik/twitch-chatlog.svg) [![Dependency Status](https://dependencyci.com/github/freaktechnik/twitch-chatlog/badge)](https://dependencyci.com/github/freaktechnik/twitch-chatlog)
 
 Fetch the chatlog to a Twitch VOD from your command line with `twitch-chatlog`.

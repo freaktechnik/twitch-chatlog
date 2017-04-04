@@ -27,7 +27,7 @@
     "colors": "^1.1.2",
     "hex-to-color-name": "^1.0.1",
     "node-fetch": "^1.5.3",
-    "progress": "^1.1.8",
+    "progress": "^2.0.0",
     "yargs": "^7.0.1"
   },
   "repository": {

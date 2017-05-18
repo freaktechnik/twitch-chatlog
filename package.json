@@ -26,8 +26,9 @@
   "dependencies": {
     "colors": "^1.1.2",
     "hex-to-color-name": "^1.0.1",
-    "node-fetch": "^1.5.3",
     "progress": "^2.0.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "yargs": "^8.0.1"
   },
   "repository": {

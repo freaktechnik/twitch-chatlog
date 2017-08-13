@@ -7,7 +7,7 @@
     "twitch-chatlog": "./bin/twitch-chatlog"
   },
   "engines": {
-    "node": ">=6.11.2"
+    "node": ">=7.10.1"
   },
   "scripts": {
     "test": "npm run lint && nyc ava",

@@ -5,3 +5,4 @@ test
 *~
 coverage
 .nyc_output
+.travis.yml

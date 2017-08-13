@@ -7,11 +7,12 @@
     "status":"recorded",
     "tag_list":"",
     "views":3,
-    "url":"https://www.twitch.tv/ec0ke/v/79240813",
+    "url":"https://www.twitch.tv/videos/79240813",
     "language":"en",
     "viewable":"public",
     "viewable_at":null,
     "_id":"v79240813",
+    "recorded_at": "2016-07-20T20:22:02Z",
     "game":"War Thunder",
     "length":1995,
     "preview":{
@@ -58,6 +59,5 @@
         "name":"ec0ke",
         "display_name":"Ec0ke",
         "_id":72084450
-    },
-    "muted_segments":null
+    }
 }

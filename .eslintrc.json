@@ -2,5 +2,5 @@
     "parserOptions": {
         "ecmaVersion": 6
     },
-    "extends:": "plugin:freaktechnik/node"
+    "extends": "plugin:freaktechnik/node"
 }

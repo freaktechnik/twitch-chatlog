@@ -1,4 +1,7 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
+"use strict";
+
+/* eslint-disable no-console */
 
 const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage: $0 <vod_id>\n\nvod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).")
     .string("_")
@@ -23,14 +26,14 @@ const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage:
         default: true,
         describe: 'Show a progress bar while loading the log',
         type: 'boolean'
-	})
-	.option('l', {
-	    alias: 'length',
-	    default: 600,
-	    defaultDescription: '(10 min)',
-	    describe: 'Amount of time from the log to fetch in seconds. Gets shortened to the VOD length if bigger. 0 loads everything but is not recommended. The output will run until the next end of a log fragment.',
-	    type: 'number',
-	    nargs: 1
+    })
+    .option('l', {
+        alias: 'length',
+        default: 600,
+        defaultDescription: '(10 min)',
+        describe: 'Amount of time from the log to fetch in seconds. Gets shortened to the VOD length if bigger. 0 loads everything but is not recommended. The output will run until the next end of a log fragment.',
+        type: 'number',
+        nargs: 1
     })
     .option('s', {
         alias: 'start',
@@ -60,7 +63,7 @@ const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage:
     .example("$0 79240813 --no-progress --end=2016-07-20T20:37:44+0000", "Load the chat log until the given date and don't show a progress bar.")
     .argv;
 
-var program = require("../lib/");
+const program = require("../lib/");
 
 program.getChatlog({
     vodId: argv._[0],
@@ -74,5 +77,5 @@ program.getChatlog({
     return program.printResults(results, argv.color);
 }).then(console.log).catch((e) => {
     console.error(e);
-    process.exit(1);
+    throw e;
 });

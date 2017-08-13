@@ -29,13 +29,15 @@ const closeServer = (server) => {
     return new Promise((resolve) => server.close(resolve));
 };
 
+const vodId = vod._id.substr(1);
+
 test.todo("Messages are returned in descending time order with one worker");
 test.todo("Messages are increasing in time with multiple workers");
 
-test("Getting message", async function(t) {
+test("Getting message", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id,
+        vodId,
         start: 0,
         length: 30,
         testServer: server.address()
@@ -47,10 +49,10 @@ test("Getting message", async function(t) {
     await closeServer(server);
 });
 
-test("Getting multiple fragments using length", async function(t) {
+test("Getting multiple fragments using length", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id,
+        vodId,
         start: 0,
         length: 60,
         testServer: server.address()
@@ -61,10 +63,10 @@ test("Getting multiple fragments using length", async function(t) {
     await closeServer(server);
 });
 
-test("Getting multiple fragments with more workers", async function(t) {
+test("Getting multiple fragments with more workers", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         start: 0,
         length: 60,
         testServer: server.address(),
@@ -76,10 +78,10 @@ test("Getting multiple fragments with more workers", async function(t) {
     await closeServer(server);
 });
 
-test("Getting multiple fragments with less workers", async function(t) {
+test("Getting multiple fragments with less workers", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         start: 0,
         length: 160,
         testServer: server.address(),
@@ -91,10 +93,10 @@ test("Getting multiple fragments with less workers", async function(t) {
     await closeServer(server);
 });
 
-test("Getting a partial fragment returns the whole fragment", async function(t) {
+test("Getting a partial fragment returns the whole fragment", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         start: 0,
         length: 45,
         testServer: server.address()
@@ -105,10 +107,10 @@ test("Getting a partial fragment returns the whole fragment", async function(t) 
     await closeServer(server);
 });
 
-test("Getting a partial log based on relative end", async function(t) {
+test("Getting a partial log based on relative end", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         end: "00:03:00",
         testServer: server.address()
     });
@@ -118,10 +120,10 @@ test("Getting a partial log based on relative end", async function(t) {
     await closeServer(server);
 });
 
-test("Getting a partial log based on relative start and end", async function(t) {
+test("Getting a partial log based on relative start and end", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         start: "00:01:00",
         end: "00:03:00",
         testServer: server.address()
@@ -132,10 +134,10 @@ test("Getting a partial log based on relative start and end", async function(t) 
     await closeServer(server);
 });
 
-test("Getting a partial log based on absolute start and relative end", async function(t) {
+test("Getting a partial log based on absolute start and relative end", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         start: new Date(Date.parse(vod.recorded_at) + 60000).toString(),
         end: "00:03:20",
         testServer: server.address()
@@ -146,10 +148,10 @@ test("Getting a partial log based on absolute start and relative end", async fun
     await closeServer(server);
 });
 
-test("Getting a partial log based on absolute end", async function(t) {
+test("Getting a partial log based on absolute end", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         end: new Date(Date.parse(vod.recorded_at) + 60000).toString(),
         testServer: server.address()
     });
@@ -159,10 +161,10 @@ test("Getting a partial log based on absolute end", async function(t) {
     await closeServer(server);
 });
 
-test("Getting all fragments to a vod", async function(t) {
+test("Getting all fragments to a vod", async (t) => {
     const server = await createServer();
     const result = await getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         testServer: server.address()
     });
 
@@ -174,7 +176,7 @@ test("Getting all fragments to a vod", async function(t) {
 test("Error fetching VOD info", async (t) => {
     const server = await createServer(1);
     await t.throws(getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         testServer: server.address()
     }));
 
@@ -184,7 +186,7 @@ test("Error fetching VOD info", async (t) => {
 test("Error fetching log frament", async (t) => {
     const server = await createServer(2);
     await t.throws(getChatlog({
-        vodId: vod._id.substr(1),
+        vodId,
         testServer: server.address()
     }));
 

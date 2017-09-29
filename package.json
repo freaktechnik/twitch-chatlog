@@ -12,7 +12,7 @@
   "scripts": {
     "test": "npm run lint && nyc ava",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "eslint lib/ bin/ test/"
+    "lint": "eslint lib/ bin/ test/ --ext js,json"
   },
   "keywords": [
     "twitch",

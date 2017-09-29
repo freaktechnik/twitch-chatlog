@@ -66,7 +66,7 @@ const argv = require("yargs").usage("Fetch the chat log to a Twitch VOD.\nUsage:
 const program = require("../lib/");
 
 program.getChatlog({
-    vodId: argv._[0],
+    vodId: argv._.shift(),
     colorize: argv.color,
     clientId: argv.clientId,
     progress: argv.progress,

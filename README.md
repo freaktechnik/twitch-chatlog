@@ -40,7 +40,7 @@ Options:
                    start.                                               [string]
   -r, --requests   Amount of requests to run at once.      [number] [default: 1]
   -h, --help       Show help                                           [boolean]
-  --version        Show version number                                 [boolean]
+  -v, --version    Show version number                                 [boolean]
 
 Examples:
   twitch-chatlog 79240813                   Load the first ten minutes of chat

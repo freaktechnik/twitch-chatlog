@@ -38,7 +38,6 @@ Options:
                    actual time.                   [string] [default: "00:00:00"]
   -e, --end        End time. Alternative to specifying a length. A time like for
                    start.                                               [string]
-  -r, --requests   Amount of requests to run at once.      [number] [default: 1]
   -h, --help       Show help                                           [boolean]
   -v, --version    Show version number                                 [boolean]
 

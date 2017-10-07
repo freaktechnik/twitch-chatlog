@@ -6,16 +6,18 @@ const date = new Date();
 const timestamp = date.getTime();
 const printedTime = date.toTimeString();
 const timeSection = `[${printedTime}]`;
-const tags = {};
 const testData = [
     {
         messages: [ {
-            from: "test",
-            message: "foo bar",
-            timestamp,
-            tags: {
-                "display-name": "Test"
-            }
+            message: {
+                body: "foo bar"
+            },
+            commenter: {
+                name: "test",
+                "display_name": "Test"
+            },
+            source: "chat",
+            "created_at": timestamp
         } ],
         name: 'single colorless message with display name',
         color: false,
@@ -23,10 +25,14 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo bar",
-            timestamp,
-            tags
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo bar"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: 'single colorless message without display name',
         color: false,
@@ -35,16 +41,24 @@ const testData = [
     {
         messages: [
             {
-                from: "test",
-                message: "foo",
-                timestamp,
-                tags
+                commenter: {
+                    name: "test"
+                },
+                message: {
+                    body: "foo"
+                },
+                "created_at": timestamp,
+                source: "chat"
             },
             {
-                from: "freaktechnik",
-                message: "bar",
-                timestamp,
-                tags
+                commenter: {
+                    name: "freaktechnik"
+                },
+                message: {
+                    body: "bar"
+                },
+                "created_at": timestamp,
+                source: "chat"
             }
         ],
         name: 'multiple colorless messages',
@@ -54,10 +68,14 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo bar",
-            timestamp,
-            tags
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo bar"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: 'colored message with default colors',
         color: true,
@@ -66,18 +84,26 @@ const testData = [
     {
         messages: [
             {
-                from: "test",
-                message: "foo",
-                timestamp,
-                tags,
-                color: "#ffffff"
+                commenter: {
+                    name: "test"
+                },
+                message: {
+                    body: "foo",
+                    "user_color": "#ffffff"
+                },
+                "created_at": timestamp,
+                source: "chat"
             },
             {
-                from: "test",
-                message: "bar",
-                timestamp,
-                tags,
-                color: "#000000"
+                commenter: {
+                    name: "test"
+                },
+                message: {
+                    body: "bar",
+                    "user_color": "#000000"
+                },
+                "created_at": timestamp,
+                source: "chat"
             }
         ],
         name: 'colored messages with set user color',
@@ -87,11 +113,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#ffffff"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#ffffff"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test white nick color",
         color: true,
@@ -99,11 +129,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#000000"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#000000"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test black nick color",
         color: true,
@@ -111,11 +145,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#0f0f0f"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#0f0f0f"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test grey nick color",
         color: true,
@@ -123,11 +161,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#ff0000"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#ff0000"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test red nick color",
         color: true,
@@ -135,11 +177,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#00ff00"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#00ff00"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test green nick color",
         color: true,
@@ -147,11 +193,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#0000ff"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#0000ff"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test blue nick color",
         color: true,
@@ -159,11 +209,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#ffff00"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#ffff00"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test yellow nick color",
         color: true,
@@ -171,11 +225,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#ff00ff"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#ff00ff"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test magenta nick color",
         color: true,
@@ -183,11 +241,15 @@ const testData = [
     },
     {
         messages: [ {
-            from: "test",
-            message: "foo",
-            timestamp,
-            tags,
-            color: "#00ffff"
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "user_color": "#00ffff"
+            },
+            "created_at": timestamp,
+            source: "chat"
         } ],
         name: "Test cyan nick color",
         color: true,
@@ -202,8 +264,7 @@ const testData = [
 ];
 
 const testFunction = (t, data) => {
-    const testMessages = data.messages.map((attributes) => ({ attributes }));
-    t.is(printResults(testMessages, data.color), data.expectedResult);
+    t.is(printResults(data.messages, data.color), data.expectedResult);
 };
 
 testData.forEach((data) => {

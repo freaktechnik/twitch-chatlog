@@ -50,13 +50,6 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
             type: 'string',
             nargs: 1
         })
-        .option('r', {
-            alias: 'requests',
-            describe: 'Amount of requests to run at once.',
-            type: 'number',
-            nargs: 1,
-            default: 1
-        })
         .help('h')
         .alias('h', 'help')
         .alias('v', 'version')

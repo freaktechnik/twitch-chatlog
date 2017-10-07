@@ -15,7 +15,7 @@ const createServer = (error) => {
         });
     }
     if(error != 2) {
-        server.get('/rechat-messages', (req, res) => {
+        server.get('/kraken/videos/79240813/comments', (req, res) => {
             res.json(rechatMessage);
         });
     }
@@ -41,123 +41,15 @@ test("Getting message", async (t) => {
         testServer: server.address()
     });
 
-    t.is(result.length, 1);
-    t.deepEqual(result, rechatMessage.data);
+    t.is(result.length, rechatMessage.comments.length);
+    t.deepEqual(result, rechatMessage.comments);
 
     await closeServer(server);
 });
 
-test("Getting multiple fragments using length", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        start: 0,
-        length: 60,
-        testServer: server.address()
-    });
-
-    t.is(result.length, 2);
-
-    await closeServer(server);
-});
-
-test("Getting multiple fragments with more workers", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        start: 0,
-        length: 60,
-        testServer: server.address(),
-        requests: 3
-    });
-
-    t.is(result.length, 2);
-
-    await closeServer(server);
-});
-
-test("Getting multiple fragments with less workers", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        start: 0,
-        length: 160,
-        testServer: server.address(),
-        requests: 2
-    });
-
-    t.is(result.length, 6);
-
-    await closeServer(server);
-});
-
-test("Getting a partial fragment returns the whole fragment", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        start: 0,
-        length: 45,
-        testServer: server.address()
-    });
-
-    t.is(result.length, 2);
-
-    await closeServer(server);
-});
-
-test("Getting a partial log based on relative end", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        end: "00:03:00",
-        testServer: server.address()
-    });
-
-    t.is(result.length, 6);
-
-    await closeServer(server);
-});
-
-test("Getting a partial log based on relative start and end", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        start: "00:01:00",
-        end: "00:03:00",
-        testServer: server.address()
-    });
-
-    t.is(result.length, 4);
-
-    await closeServer(server);
-});
-
-test("Getting a partial log based on absolute start and relative end", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        start: new Date(Date.parse(vod.recorded_at) + 60000).toString(),
-        end: "00:03:20",
-        testServer: server.address()
-    });
-
-    t.is(result.length, 5);
-
-    await closeServer(server);
-});
-
-test("Getting a partial log based on absolute end", async (t) => {
-    const server = await createServer();
-    const result = await getChatlog({
-        vodId,
-        end: new Date(Date.parse(vod.recorded_at) + 60000).toString(),
-        testServer: server.address()
-    });
-
-    t.is(result.length, 2);
-
-    await closeServer(server);
-});
+test.todo("Test getting multiple fragments");
+test.todo("Test getting chat messages with start and end");
+test.todo("Test getting chat messages with length");
 
 test("Getting all fragments to a vod", async (t) => {
     const server = await createServer();
@@ -166,7 +58,7 @@ test("Getting all fragments to a vod", async (t) => {
         testServer: server.address()
     });
 
-    t.is(result.length, Math.ceil(vod.length / 30));
+    t.is(result.length, rechatMessage.comments.length);
 
     await closeServer(server);
 });

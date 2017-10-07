@@ -1,20 +1,42 @@
 {
-    "data": [
+    "comments": [
         {
-            "type": "rechat-message",
-            "attributes": {
-                "message": "with havoc physics?",
-                "from": "freaktechnik",
-                "timestamp": 1469047054725,
-                "tags": {
-                    "display-name": "freaktechnik",
-                    "color": "#FFC400"
-                },
-                "color": "#FFC400"
+            "_id": "8799270b-a65f-48fe-bc01-8317cbc7e517",
+            "created_at": "2017-10-07T00:14:15.684Z",
+            "updated_at": "2017-10-07T00:14:15.684Z",
+            "channel_id": "35987962",
+            "content_type": "video",
+            "content_id": "180266596",
+            "content_offset_seconds": 0.184,
+            "commenter": {
+                "display_name": "TechKnowScope",
+                "_id": "97130477",
+                "name": "techknowscope",
+                "type": "user",
+                "bio": "The official Twitch page of Tech-Know Scope - TechKnowScope.tv",
+                "created_at": "2015-07-24T23:35:11.885248Z",
+                "updated_at": "2017-10-04T01:53:13.876284Z",
+                "logo": "https://static-cdn.jtvnw.net/jtv_user_pictures/c5622af41d70c2f8-profile_image-300x300.png"
             },
-            "_links": {
-                "self": "/rechat-message/chat-29-2016:AVYKB18Yl6zR4Ll_XwvD"
-            }
+            "source": "chat",
+            "state": "published",
+            "message": {
+                "body": "bout time",
+                "fragments": [
+                    {
+                        "text": "bout time"
+                    }
+                ],
+                "is_action": false,
+                "user_badges": [
+                    {
+                        "_id": "premium",
+                        "version": 1
+                    }
+                ],
+                "user_color": "#1E90FF"
+            },
+            "more_replies": false
         }
     ]
 }

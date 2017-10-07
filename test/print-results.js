@@ -1,6 +1,6 @@
 import test from 'ava';
 import { printResults } from '../lib/';
-import colors from 'colors'; // eslint-disable-line no-unused-vars
+import chalk from 'chalk';
 
 const date = new Date();
 const timestamp = date.getTime();
@@ -79,7 +79,7 @@ const testData = [
         } ],
         name: 'colored message with default colors',
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".yellow.bold} foo bar`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.yellow("<test>")} foo bar`
     },
     {
         messages: [
@@ -108,8 +108,8 @@ const testData = [
         ],
         name: 'colored messages with set user color',
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".white.bold} foo\n${
-            timeSection.grey} ${"<test>".black.bold} bar`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.white("<test>")} foo
+${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
     },
     {
         messages: [ {
@@ -125,7 +125,7 @@ const testData = [
         } ],
         name: "Test white nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".white.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.white("<test>")} foo`
     },
     {
         messages: [ {
@@ -141,7 +141,7 @@ const testData = [
         } ],
         name: "Test black nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".black.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} foo`
     },
     {
         messages: [ {
@@ -157,7 +157,7 @@ const testData = [
         } ],
         name: "Test grey nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".grey.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.gray("<test>")} foo`
     },
     {
         messages: [ {
@@ -173,7 +173,7 @@ const testData = [
         } ],
         name: "Test red nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".red.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.red("<test>")} foo`
     },
     {
         messages: [ {
@@ -189,7 +189,7 @@ const testData = [
         } ],
         name: "Test green nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".green.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.green("<test>")} foo`
     },
     {
         messages: [ {
@@ -205,7 +205,7 @@ const testData = [
         } ],
         name: "Test blue nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".blue.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.blue("<test>")} foo`
     },
     {
         messages: [ {
@@ -221,7 +221,7 @@ const testData = [
         } ],
         name: "Test yellow nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".yellow.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.yellow("<test>")} foo`
     },
     {
         messages: [ {
@@ -237,7 +237,7 @@ const testData = [
         } ],
         name: "Test magenta nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".magenta.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.magenta("<test>")} foo`
     },
     {
         messages: [ {
@@ -253,7 +253,7 @@ const testData = [
         } ],
         name: "Test cyan nick color",
         color: true,
-        expectedResult: `${timeSection.grey} ${"<test>".cyan.bold} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.cyan("<test>")} foo`
     },
     {
         messages: [],

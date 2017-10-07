@@ -60,7 +60,6 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
 
 program.getChatlog({
     vodId: argv._.shift(),
-    colorize: argv.color,
     clientId: argv.clientId,
     progress: argv.progress,
     start: argv.start,

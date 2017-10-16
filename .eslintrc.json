@@ -2,5 +2,5 @@
     "parserOptions": {
         "ecmaVersion": 2017
     },
-    "extends": "plugin:freaktechnik/node"
+    "extends": "@freaktechnik/eslint-config-node"
 }

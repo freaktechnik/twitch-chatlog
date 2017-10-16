@@ -40,11 +40,12 @@
   },
   "preferGlobal": true,
   "devDependencies": {
+    "@freaktechnik/eslint-config-node": "^5.1.3",
+    "@freaktechnik/eslint-config-test": "^5.1.5",
     "ava": "^0.22.0",
-    "codecov": "^2.3.0",
-    "eslint": "^4.4.1",
-    "eslint-plugin-freaktechnik": "^5.0.0",
-    "express": "^4.15.4",
+    "codecov": "^2.3.1",
+    "eslint": "^4.9.0",
+    "express": "^4.16.2",
     "nyc": "^11.1.0"
   }
 }

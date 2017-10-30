@@ -17,7 +17,7 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
         })
         .option('C', {
             alias: 'client-id',
-            default: 'hdaoisxhhrc9h3lz3k224iao13crkkq8',
+            default: 'hdaoisxhhrc9h3lz3k24iao13crkkq8',
             defaultDescription: '(Client-ID)',
             describe: 'Twitch application client ID',
             type: 'string',

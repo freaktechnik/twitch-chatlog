@@ -260,6 +260,38 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         name: "Test empty set",
         color: false,
         expectedResult: ""
+    },
+    {
+        messages: [ {
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "is_action": true
+            },
+            "created_at": timestamp,
+            source: "chat"
+        } ],
+        name: "Test uncolorized action",
+        color: false,
+        expectedResult: `${timeSection} ** test foo`
+    },
+    {
+        messages: [ {
+            commenter: {
+                name: "test"
+            },
+            message: {
+                body: "foo",
+                "is_action": true
+            },
+            "created_at": timestamp,
+            source: "chat"
+        } ],
+        name: "Test colorized action",
+        color: true,
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.italic.yellow.bold('** test')} ${chalk.italic('foo')}`
     }
 ];
 

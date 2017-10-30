@@ -1,6 +1,6 @@
 {
   "name": "twitch-chatlog",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Fetch the chat log to a Twitch VOD.",
   "main": "lib/index.js",
   "bin": {
@@ -40,7 +40,7 @@
   },
   "preferGlobal": true,
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^5.2.1",
+    "@freaktechnik/eslint-config-node": "^6.0.0",
     "@freaktechnik/eslint-config-test": "^6.0.0",
     "ava": "^0.23.0",
     "codecov": "^3.0.0",

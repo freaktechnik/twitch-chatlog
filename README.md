@@ -5,6 +5,8 @@
 
 Fetch the chatlog to a Twitch VOD from your command line with `twitch-chatlog`.
 
+![image](https://user-images.githubusercontent.com/640949/32186906-b3275e40-bda3-11e7-95a2-4cccb6ce9b3b.png)
+
 This little command can download the whole chat log to a twitch VOD. It takes the ID of the VOD (1111111 or similar) as only argument. To learn about the usage of the command, use `twitch-chatlog -h`.
 
 The output can optionally be colored with `-c` or `--color` or by setting an environment variable `TWITCH_CHATLOG_COLOR`. To disable the loading progress bar, set `--no-progress` or `TWITCH_CHATLOG_PROGRESS` to false.

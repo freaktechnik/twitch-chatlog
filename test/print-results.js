@@ -79,7 +79,7 @@ const testData = [
         } ],
         name: 'colored message with default colors',
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.yellow("<test>")} foo bar`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.yellow.bold("<test>")} foo bar`
     },
     {
         messages: [
@@ -108,8 +108,8 @@ const testData = [
         ],
         name: 'colored messages with set user color',
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.white("<test>")} foo
-${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ffffff').bold("<test>")} foo
+${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
     },
     {
         messages: [ {
@@ -125,7 +125,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test white nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.white("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ffffff').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -141,7 +141,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test black nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -157,7 +157,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test grey nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.gray("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#0f0f0f').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -173,7 +173,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test red nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.red("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ff0000').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -189,7 +189,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test green nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.green("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#00ff00').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -205,7 +205,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test blue nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.blue("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#0000ff').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -221,7 +221,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test yellow nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.yellow("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ffff00').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -237,7 +237,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test magenta nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.magenta("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ff00ff').bold("<test>")} foo`
     },
     {
         messages: [ {
@@ -253,7 +253,7 @@ ${chalk.gray(timeSection)} ${chalk.bold.black("<test>")} bar`
         } ],
         name: "Test cyan nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.bold.cyan("<test>")} foo`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#00ffff').bold("<test>")} foo`
     },
     {
         messages: [],
@@ -270,3 +270,5 @@ const testFunction = (t, data) => {
 testData.forEach((data) => {
     test(data.name, testFunction, data);
 });
+
+test.todo("Badges");

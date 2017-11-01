@@ -291,7 +291,7 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test colorized action",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.italic.yellow.bold('** test')} ${chalk.italic('foo')}`
+        expectedResult: `${chalk.gray(timeSection)} ${chalk.italic.yellow.bold('** test')} ${chalk.yellow.italic('foo')}`
     }
 ];
 

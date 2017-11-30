@@ -76,7 +76,7 @@ program.getChatlog({
         if(!argv.raw) {
             return program.printResults(results, argv.color);
         }
-        return results;
+        return JSON.stringify(results);
     })
     /* eslint-disable no-console */
     .then(console.log)

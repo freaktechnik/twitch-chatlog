@@ -26,7 +26,7 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
         .option('p', {
             alias: 'progress',
             default: true,
-            describe: 'Show a progress bar while loading the log',
+            describe: 'Show a progress bar while loading the log. Disabled when the raw option is enabled.',
             type: 'boolean'
         })
         .option('l', {
@@ -67,7 +67,7 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
 program.getChatlog({
     vodId: argv._.shift(),
     clientId: argv.clientId,
-    progress: argv.progress,
+    progress: argv.progress && !argv.raw,
     start: argv.start,
     end: argv.end,
     length: argv.length

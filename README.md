@@ -40,6 +40,9 @@ Options:
                    actual time.                   [string] [default: "00:00:00"]
   -e, --end        End time. Alternative to specifying a length. A time like for
                    start.                                               [string]
+  -r, --raw        Print the raw JSON output instead of a formatted chat log.
+                                                      [boolean] [default: false]
+
   -h, --help       Show help                                           [boolean]
   -v, --version    Show version number                                 [boolean]
 

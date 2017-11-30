@@ -50,6 +50,12 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
             type: 'string',
             nargs: 1
         })
+        .option('r', {
+            alias: 'raw',
+            default: false,
+            describe: 'Print the raw JSON output instead of a formatted chat log.',
+            type: 'boolean'
+        })
         .help('h')
         .alias('h', 'help')
         .alias('v', 'version')
@@ -66,7 +72,12 @@ program.getChatlog({
     end: argv.end,
     length: argv.length
 })
-    .then((results) => program.printResults(results, argv.color))
+    .then((results) => {
+        if(!argv.raw) {
+            return program.printResults(results, argv.color);
+        }
+        return results;
+    })
     /* eslint-disable no-console */
     .then(console.log)
     .catch((e) => {

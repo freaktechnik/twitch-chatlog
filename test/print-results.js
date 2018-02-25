@@ -1,5 +1,5 @@
 import test from 'ava';
-import { printResults } from '../lib/';
+import { printResults } from '../lib';
 import chalk from 'chalk';
 
 const date = new Date();

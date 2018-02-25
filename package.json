@@ -25,8 +25,8 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.3.0",
-    "node-fetch": "^2.0.0-alpha.8",
+    "chalk": "^2.3.1",
+    "node-fetch": "^2.0.0",
     "ora": "^2.0.0",
     "yargs": "^11.0.0"
   },
@@ -40,12 +40,13 @@
   },
   "preferGlobal": true,
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^6.0.0",
-    "@freaktechnik/eslint-config-test": "^6.0.0",
+    "@freaktechnik/eslint-config-node": "^6.3.1",
+    "@freaktechnik/eslint-config-test": "^6.3.2",
     "ava": "^0.25.0",
     "codecov": "^3.0.0",
-    "eslint": "^4.10.0",
+    "eslint": "^4.18.1",
     "express": "^4.16.2",
-    "nyc": "^11.3.0"
-  }
+    "nyc": "^11.5.0"
+  },
+  "sideEffects": false
 }

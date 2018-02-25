@@ -123,9 +123,79 @@ const CHEER_INFO = [
     },
     {
         from: 1000000,
-        to: Number.POSITIVE_INFINITY,
+        to: 1249999,
         textColors: true,
         colors: false,
+        character: false
+    },
+    {
+        from: 1250000,
+        to: 1499999,
+        textColors: true,
+        colors: true,
+        character: true
+    },
+    {
+        from: 1500000,
+        to: 1749999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 1750000,
+        to: 1999999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 2000000,
+        to: 2499999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 2500000,
+        to: 2999999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 3000000,
+        to: 3499999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 3500000,
+        to: 3999999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 4000000,
+        to: 4499999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 4500000,
+        to: 4999999,
+        textColors: false,
+        colors: true,
+        character: true
+    },
+    {
+        from: 5000000,
+        to: Number.POSITIVE_INFINITY,
+        textColors: false,
+        colors: true,
         character: false
     }
 ];

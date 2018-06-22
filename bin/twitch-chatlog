@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 "use strict";
 
-const MIN_ARGS = 1,
+const iterm2Version = require('iterm2-version'),
+    MIN_ARGS = 1,
+    CAN_DISPLAY_IMAGES = process.env.TERM_PROGRAM === 'iTerm.app' && parseInt(iterm2Version()[0], 10) >= 3,
     { argv } = require("yargs").usage(`Fetch the chat log to a Twitch VOD.
 Usage: $0 <vod_id>
 
@@ -56,6 +58,12 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
             describe: 'Print the raw JSON output instead of a formatted chat log.',
             type: 'boolean'
         })
+        .option('i', {
+            alias: 'images',
+            default: CAN_DISPLAY_IMAGES,
+            describe: 'Load emote images when colorizing output in the terminal. Only works in few terminals (and should default to true there).',
+            type: 'boolean'
+        })
         .help('h')
         .alias('h', 'help')
         .alias('v', 'version')
@@ -64,17 +72,18 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
         .example("$0 79240813 --no-progress --end=2016-07-20T20:37:44+0000", "Load the chat log until the given date and don't show a progress bar."),
     program = require("../lib/");
 
+const showProgress = argv.progress && !argv.raw;
 program.getChatlog({
     vodId: argv._.shift(),
     clientId: argv.clientId,
-    progress: argv.progress && !argv.raw,
+    progress: showProgress,
     start: argv.start,
     end: argv.end,
     length: argv.length
 })
     .then((results) => {
         if(!argv.raw) {
-            return program.printResults(results, argv.color);
+            return program.printResults(results, argv.color, showProgress, argv.images);
         }
         return JSON.stringify(results);
     })

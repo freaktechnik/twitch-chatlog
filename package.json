@@ -26,8 +26,10 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
+    "iterm2-version": "^3.0.0",
     "node-fetch": "^2.1.2",
     "ora": "^2.1.0",
+    "term-img": "^2.1.0",
     "yargs": "^11.0.0"
   },
   "repository": {

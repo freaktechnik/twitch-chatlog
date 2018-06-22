@@ -303,8 +303,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
     }
 ];
 
-const testFunction = (t, data) => {
-    t.is(printResults(data.messages, data.color), data.expectedResult);
+const testFunction = async (t, data) => {
+    t.is(await printResults(data.messages, data.color), data.expectedResult);
 };
 
 testData.forEach((data) => {

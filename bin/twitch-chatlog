@@ -72,9 +72,9 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
         .example("$0 79240813", "Load the first ten minutes of chat for the VOD https://twitch.tv/ec0ke/v/79240813")
         .example("$0 -c --end 00:15:00 79240813", "Load the first 15 minutes of chat for the VOD and colorize the output.")
         .example("$0 79240813 --no-progress --end=2016-07-20T20:37:44+0000", "Load the chat log until the given date and don't show a progress bar."),
-    program = require("../lib/");
+    program = require('../lib'),
 
-const showProgress = argv.progress && !argv.raw;
+    showProgress = argv.progress && !argv.raw;
 program.getChatlog({
     vodId: argv._.shift(),
     clientId: argv.clientId,

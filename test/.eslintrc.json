@@ -1,3 +1,6 @@
 {
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
     "extends": "@freaktechnik/eslint-config-test"
 }

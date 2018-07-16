@@ -3,7 +3,9 @@
 
 const iterm2Version = require('iterm2-version'),
     MIN_ARGS = 1,
-    CAN_DISPLAY_IMAGES = process.env.TERM_PROGRAM === 'iTerm.app' && parseInt(iterm2Version()[0], 10) >= 3,
+    MAJOR_VERSION = 0,
+    MIN_ITERM_VERSION = 3,
+    CAN_DISPLAY_IMAGES = process.env.TERM_PROGRAM === 'iTerm.app' && parseInt(iterm2Version()[MAJOR_VERSION], 10) >= MIN_ITERM_VERSION,
     { argv } = require("yargs").usage(`Fetch the chat log to a Twitch VOD.
 Usage: $0 <vod_id>
 

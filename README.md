@@ -60,6 +60,7 @@ Examples:
 ## Similar Projects
  - https://github.com/PetterKraabol/Twitch-Chat-Downloader
  - https://github.com/bibby/itch
+ - https://github.com/OgulcanCelik/twitch-clip-chat
 
 ## Disclaimer
 This program uses an unofficial Twitch API that may stop working at any point. It also potentially sends a lot of requests in quick succession, which might lead to Twitch taking measures against it and thus the program and/or your Twitch experience being reduced.

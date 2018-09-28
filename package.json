@@ -27,10 +27,10 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "iterm2-version": "^3.0.0",
-    "node-fetch": "^2.1.2",
+    "node-fetch": "^2.2.0",
     "ora": "^3.0.0",
     "term-img": "^2.1.0",
-    "yargs": "^12.0.1"
+    "yargs": "^12.0.2"
   },
   "repository": {
     "type": "git",
@@ -42,13 +42,13 @@
   },
   "preferGlobal": true,
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^6.4.4",
-    "@freaktechnik/eslint-config-test": "^6.4.4",
+    "@freaktechnik/eslint-config-node": "^6.5.0",
+    "@freaktechnik/eslint-config-test": "^6.5.1",
     "ava": "^0.25.0",
-    "codecov": "^3.0.4",
-    "eslint": "^5.1.0",
+    "codecov": "^3.1.0",
+    "eslint": "^5.6.0",
     "express": "^4.16.3",
-    "nyc": "^12.0.2"
+    "nyc": "^13.0.1"
   },
   "sideEffects": false
 }

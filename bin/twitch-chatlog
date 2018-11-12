@@ -85,7 +85,7 @@ program.getChatlog({
 })
     .then((results) => {
         if(!argv.raw) {
-            return program.printResults(results, argv.color, showProgress, argv.images);
+            return program.printResults(results, argv.color, showProgress, argv.images, argv.clientId);
         }
         return JSON.stringify(results);
     })

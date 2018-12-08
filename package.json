@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
-    "iterm2-version": "^3.0.0",
+    "iterm2-version": "^4.0.0",
     "node-fetch": "^2.2.1",
     "ora": "^3.0.0",
     "string-replace-async": "^1.2.1",

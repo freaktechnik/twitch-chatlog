@@ -65,7 +65,7 @@ test("Getting all fragments to a vod", async (t) => {
 
 test("Error fetching VOD info", async (t) => {
     const server = await createServer(1);
-    await t.throws(getChatlog({
+    await t.throwsAsync(getChatlog({
         vodId,
         testServer: server.address()
     }));
@@ -75,7 +75,7 @@ test("Error fetching VOD info", async (t) => {
 
 test("Error fetching log frament", async (t) => {
     const server = await createServer(2);
-    await t.throws(getChatlog({
+    await t.throwsAsync(getChatlog({
         vodId,
         testServer: server.address()
     }));

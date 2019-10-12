@@ -44,7 +44,7 @@
   "preferGlobal": true,
   "devDependencies": {
     "@freaktechnik/eslint-config-node": "^6.5.4",
-    "@freaktechnik/eslint-config-test": "^6.5.4",
+    "@freaktechnik/eslint-config-test": "^7.0.0",
     "ava": "^2.0.0",
     "codecov": "^3.1.0",
     "eslint": "^5.12.1",

@@ -26,12 +26,12 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
-    "iterm2-version": "^4.0.0",
-    "node-fetch": "^2.3.0",
-    "ora": "^3.0.0",
+    "iterm2-version": "^4.2.0",
+    "node-fetch": "^2.6.0",
+    "ora": "^4.0.2",
     "string-replace-async": "^1.2.1",
-    "term-img": "^4.0.0",
-    "yargs": "^13.1.0"
+    "term-img": "^4.1.0",
+    "yargs": "^14.2.0"
   },
   "repository": {
     "type": "git",
@@ -43,13 +43,18 @@
   },
   "preferGlobal": true,
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^6.5.4",
-    "@freaktechnik/eslint-config-test": "^6.5.4",
-    "ava": "^2.0.0",
-    "codecov": "^3.1.0",
-    "eslint": "^5.12.1",
-    "express": "^4.16.4",
-    "nyc": "^14.0.0"
+    "@freaktechnik/eslint-config-node": "^7.0.0",
+    "@freaktechnik/eslint-config-test": "^7.0.0",
+    "ava": "^2.4.0",
+    "codecov": "^3.6.1",
+    "eslint": "^6.5.1",
+    "express": "^4.17.1",
+    "nyc": "^14.1.1"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "ava": {
+    "helpers": [
+      "test/api/*"
+    ]
+  }
 }

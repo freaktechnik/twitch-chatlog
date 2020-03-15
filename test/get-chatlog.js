@@ -10,13 +10,13 @@ const createServer = (error) => {
     error = error || 0;
 
     if(error != 1) {
-        server.get('/kraken/videos/79240813', (req, res) => {
-            res.json(vod);
+        server.get('/kraken/videos/79240813', (request, response) => {
+            response.json(vod);
         });
     }
     if(error != 2) {
-        server.get('/kraken/videos/79240813/comments', (req, res) => {
-            res.json(rechatMessage);
+        server.get('/kraken/videos/79240813/comments', (request, response) => {
+            response.json(rechatMessage);
         });
     }
 
@@ -27,7 +27,7 @@ const createServer = (error) => {
 
 const closeServer = (server) => new Promise((resolve) => server.close(resolve));
 
-const vodId = vod._id.substr(1);
+const vodId = vod._id.slice(1);
 
 test.todo("Messages are returned in descending time order with one worker");
 test.todo("Messages are increasing in time with multiple workers");

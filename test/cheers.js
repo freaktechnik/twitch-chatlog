@@ -201,13 +201,13 @@ const CHEER_INFO = [
 ];
 
 const testMethod = (t, method, range) => {
-    const prevValue = cheers[method](range.from - 1);
+    const previousValue = cheers[method](range.from - 1);
     const value = cheers[method](range.from);
     if(range[method]) {
-        t.not(value, prevValue);
+        t.not(value, previousValue);
     }
     else {
-        t.is(value, prevValue);
+        t.is(value, previousValue);
     }
     if(range.to < Number.POSITIVE_INFINITY) {
         t.is(cheers[method](range.to), value);

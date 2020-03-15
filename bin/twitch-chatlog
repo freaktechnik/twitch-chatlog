@@ -91,8 +91,8 @@ program.getChatlog({
     })
     /* eslint-disable no-console */
     .then(console.log)
-    .catch((e) => {
-        console.error(e);
+    .catch((error) => {
+        console.error(error);
         /* eslint-enable no-console */
-        throw e;
+        throw error;
     });

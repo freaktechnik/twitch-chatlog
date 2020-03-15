@@ -25,7 +25,7 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "iterm2-version": "^4.2.0",
     "node-fetch": "^2.6.0",
     "ora": "^4.0.3",

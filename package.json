@@ -28,7 +28,7 @@
     "chalk": "^3.0.0",
     "iterm2-version": "^4.2.0",
     "node-fetch": "^2.6.0",
-    "ora": "^4.0.3",
+    "ora": "^4.0.4",
     "string-replace-async": "^1.2.1",
     "term-img": "^4.1.0",
     "yargs": "^15.3.1"

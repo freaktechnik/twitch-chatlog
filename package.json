@@ -13,9 +13,7 @@
     "test": "npm run lint && nyc ava",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "eslint lib/* bin/* test/* --ext js,json",
-    "start": "node bin/twitch-chatlog",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "start": "node bin/twitch-chatlog"
   },
   "keywords": [
     "twitch",
@@ -33,8 +31,7 @@
     "ora": "^4.0.4",
     "string-replace-async": "^1.2.1",
     "term-img": "^4.1.0",
-    "yargs": "^15.3.1",
-    "snyk": "^1.319.2"
+    "yargs": "^15.3.1"
   },
   "repository": {
     "type": "git",
@@ -61,6 +58,5 @@
       "test/*.js"
     ],
     "babel": true
-  },
-  "snyk": true
+  }
 }

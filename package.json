@@ -31,7 +31,7 @@
     "ora": "^5.1.0",
     "string-replace-async": "^2.0.0",
     "term-img": "^5.0.0",
-    "yargs": "^16.1.1"
+    "yargs": "^16.2.0"
   },
   "repository": {
     "type": "git",

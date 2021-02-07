@@ -2,9 +2,11 @@
 "use strict";
 
 const iterm2Version = require('iterm2-version'),
+    { once } = require('events'),
     MIN_ARGS = 1,
     MAJOR_VERSION = 0,
     MIN_ITERM_VERSION = 3,
+    ERROR_STATUS = 1,
     CAN_DISPLAY_IMAGES = process.env.TERM_PROGRAM === 'iTerm.app' && parseInt(iterm2Version()[MAJOR_VERSION], 10) >= MIN_ITERM_VERSION,
     { argv } = require("yargs").usage(`Fetch the chat log to a Twitch VOD.
 Usage: $0 <vod_id>
@@ -75,24 +77,32 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
     program = require('../lib'),
 
     showProgress = argv.progress && !argv.raw;
-program.getChatlog({
-    vodId: argv._.shift(),
-    clientId: argv.clientId,
-    progress: showProgress,
-    start: argv.start,
-    end: argv.end,
-    length: argv.length
-})
-    .then((results) => {
-        if(!argv.raw) {
-            return program.printResults(results, argv.color, showProgress, argv.images, argv.clientId);
-        }
-        return JSON.stringify(results);
-    })
-    /* eslint-disable no-console */
-    .then(console.log)
+
+async function run() {
+    const results = await program.getChatlog({
+        vodId: argv._.shift(),
+        clientId: argv.clientId,
+        progress: showProgress,
+        start: argv.start,
+        end: argv.end,
+        length: argv.length
+    });
+    if(!argv.raw) {
+        const formatted = await program.printResults(results, argv.color, showProgress, argv.images, argv.clientId);
+        console.log(formatted); // eslint-disable-line no-console
+        return;
+    }
+    const bfj = require('bfj'),
+        stream = bfj
+            .streamify(results, {
+                yieldRate: Number.MAX_SAFE_INTEGER
+            })
+            .pipe(process.stdout);
+    await once(stream, 'end');
+}
+
+run()
     .catch((error) => {
         console.error(error);
-        /* eslint-enable no-console */
-        throw error;
+        process.exit(ERROR_STATUS); // eslint-disable-line no-process-exit
     });

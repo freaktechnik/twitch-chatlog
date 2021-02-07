@@ -7,7 +7,7 @@
     "twitch-chatlog": "./bin/twitch-chatlog"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=11.13.0"
   },
   "scripts": {
     "test": "npm run lint && nyc ava",
@@ -24,6 +24,7 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "dependencies": {
+    "bfj": "^7.0.2",
     "chalk": "^4.1.0",
     "iterm2-version": "^4.2.0",
     "node-fetch": "^2.6.1",

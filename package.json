@@ -11,7 +11,6 @@
   },
   "scripts": {
     "test": "npm run lint && nyc ava",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "eslint lib/* bin/* test/* --ext js,json",
     "start": "node bin/twitch-chatlog"
   },
@@ -53,6 +52,12 @@
     "nyc": "^15.1.0"
   },
   "sideEffects": false,
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
   "ava": {
     "files": [
       "test/*.js"

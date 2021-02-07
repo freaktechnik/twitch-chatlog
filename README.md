@@ -1,7 +1,6 @@
 # twitch-chatlog
 
-
-[![Build Status](https://travis-ci.org/freaktechnik/twitch-chatlog.svg?branch=master)](https://travis-ci.org/freaktechnik/twitch-chatlog) [![codecov](https://codecov.io/gh/freaktechnik/twitch-chatlog/branch/master/graph/badge.svg)](https://codecov.io/gh/freaktechnik/twitch-chatlog) ![Dependencies](https://david-dm.org/freaktechnik/twitch-chatlog.svg)
+[![codecov](https://codecov.io/gh/freaktechnik/twitch-chatlog/branch/master/graph/badge.svg)](https://codecov.io/gh/freaktechnik/twitch-chatlog)
 
 Fetch the chatlog to a Twitch VOD from your command line with `twitch-chatlog`.
 
@@ -16,11 +15,13 @@ To make use of your own Twitch application client ID, you may provide it as a co
 To control the part of the chat log to fetch, `--start`, `--length` and `--end` can be used. See the usage section below. By default the command will only fetch the first ten minutes of chat log to minimize the amount of requests.
 
 ## Installation
-```
+
+```sh
 npm install -g twitch-chatlog
 ```
 
 ## Usage
+
 ```
 Fetch the chat log to a Twitch VOD.
 Usage: twitch-chatlog <vod_id>
@@ -58,9 +59,11 @@ Examples:
 ```
 
 ## Similar Projects
- - https://github.com/PetterKraabol/Twitch-Chat-Downloader
- - https://github.com/bibby/itch
- - https://github.com/OgulcanCelik/twitch-clip-chat
+
+- https://github.com/PetterKraabol/Twitch-Chat-Downloader
+- https://github.com/bibby/itch
+- https://github.com/OgulcanCelik/twitch-clip-chat
 
 ## Disclaimer
+
 This program uses an unofficial Twitch API that may stop working at any point. It also potentially sends a lot of requests in quick succession, which might lead to Twitch taking measures against it and thus the program and/or your Twitch experience being reduced.

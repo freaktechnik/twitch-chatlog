@@ -1,5 +1,6 @@
 import test from 'ava';
 import express from 'express';
+import toArray from 'stream-to-array';
 import vod from './api/v79240813.json';
 import rechatMessage from './api/rechat-message.json';
 import { getChatlog } from '../lib';
@@ -29,22 +30,18 @@ const closeServer = (server) => new Promise((resolve) => server.close(resolve));
 
 const vodId = vod._id.slice(1);
 
-test.todo("Messages are returned in descending time order with one worker");
-test.todo("Messages are increasing in time with multiple workers");
-
 test("Getting message", async (t) => {
     const server = await createServer();
-    const result = await getChatlog({
+    t.teardown(() => closeServer(server));
+    const result = await toArray(await getChatlog({
         vodId,
         start: 0,
         length: 30,
         testServer: server.address()
-    });
+    }));
 
     t.is(result.length, rechatMessage.comments.length);
     t.deepEqual(result, rechatMessage.comments);
-
-    await closeServer(server);
 });
 
 test.todo("Test getting multiple fragments");
@@ -53,32 +50,29 @@ test.todo("Test getting chat messages with length");
 
 test("Getting all fragments to a vod", async (t) => {
     const server = await createServer();
-    const result = await getChatlog({
+    t.teardown(() => closeServer(server));
+    const result = await toArray(await getChatlog({
         vodId,
         testServer: server.address()
-    });
+    }));
 
     t.is(result.length, rechatMessage.comments.length);
-
-    await closeServer(server);
 });
 
 test("Error fetching VOD info", async (t) => {
     const server = await createServer(1);
+    t.teardown(() => closeServer(server));
     await t.throwsAsync(getChatlog({
         vodId,
         testServer: server.address()
     }));
-
-    await closeServer(server);
 });
 
 test("Error fetching log frament", async (t) => {
     const server = await createServer(2);
-    await t.throwsAsync(getChatlog({
+    t.teardown(() => closeServer(server));
+    await t.throwsAsync(toArray(await getChatlog({
         vodId,
         testServer: server.address()
-    }));
-
-    await closeServer(server);
+    })));
 });

@@ -48,7 +48,8 @@
     "codecov": "^3.8.1",
     "eslint": "^7.19.0",
     "express": "^4.17.1",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "stream-to-array": "^2.3.0"
   },
   "sideEffects": false,
   "nyc": {

@@ -1,6 +1,11 @@
 import test from 'ava';
-import { printResults } from '../lib';
+import {
+    TextStream,
+    JSONStream
+} from '../lib/format';
 import chalk from 'chalk';
+import toArray from 'stream-to-array';
+import { Readable } from 'stream';
 
 const date = new Date();
 const timestamp = date.getTime();
@@ -29,7 +34,8 @@ const testData = [
         } ],
         name: 'single colorless message with display name',
         color: false,
-        expectedResult: `[${printedTime}] <Test> foo bar`
+        expectedResult: [ `[${printedTime}] <Test> foo bar
+` ]
     },
     {
         messages: [ {
@@ -44,7 +50,8 @@ const testData = [
         } ],
         name: 'single colorless message without display name',
         color: false,
-        expectedResult: `[${printedTime}] <test> foo bar`
+        expectedResult: [ `[${printedTime}] <test> foo bar
+` ]
     },
     {
         messages: [
@@ -71,8 +78,12 @@ const testData = [
         ],
         name: 'multiple colorless messages',
         color: false,
-        expectedResult: `[${printedTime}] <test> foo
-[${printedTime}] <freaktechnik> bar`
+        expectedResult: [
+            `[${printedTime}] <test> foo
+`,
+            `[${printedTime}] <freaktechnik> bar
+`
+        ]
     },
     {
         messages: [ {
@@ -87,7 +98,8 @@ const testData = [
         } ],
         name: 'colored message with default colors',
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.yellow.bold("<test>")} foo bar`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.yellow.bold("<test>")} foo bar
+` ]
     },
     {
         messages: [
@@ -116,8 +128,12 @@ const testData = [
         ],
         name: 'colored messages with set user color',
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ffffff').bold("<test>")} foo
-${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
+        expectedResult: [
+            `${chalk.gray(timeSection)} ${chalk.hex('#ffffff').bold("<test>")} foo
+`,
+            `${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar
+`
+        ]
     },
     {
         messages: [ {
@@ -133,7 +149,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test white nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ffffff').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#ffffff').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -149,7 +166,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test black nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -165,7 +183,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test grey nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#0f0f0f').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#0f0f0f').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -181,7 +200,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test red nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ff0000').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#ff0000').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -197,7 +217,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test green nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#00ff00').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#00ff00').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -213,7 +234,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test blue nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#0000ff').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#0000ff').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -229,7 +251,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test yellow nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ffff00').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#ffff00').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -245,7 +268,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test magenta nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#ff00ff').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#ff00ff').bold("<test>")} foo
+` ]
     },
     {
         messages: [ {
@@ -261,13 +285,14 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test cyan nick color",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.hex('#00ffff').bold("<test>")} foo`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.hex('#00ffff').bold("<test>")} foo
+` ]
     },
     {
         messages: [],
         name: "Test empty set",
         color: false,
-        expectedResult: ""
+        expectedResult: []
     },
     {
         messages: [ {
@@ -283,7 +308,8 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test uncolorized action",
         color: false,
-        expectedResult: `${timeSection} ** test foo`
+        expectedResult: [ `${timeSection} ** test foo
+` ]
     },
     {
         messages: [ {
@@ -299,16 +325,48 @@ ${chalk.gray(timeSection)} ${chalk.hex('#000000').bold("<test>")} bar`
         } ],
         name: "Test colorized action",
         color: true,
-        expectedResult: `${chalk.gray(timeSection)} ${chalk.italic.yellow.bold('** test')} ${chalk.yellow.italic('foo')}`
+        expectedResult: [ `${chalk.gray(timeSection)} ${chalk.italic.yellow.bold('** test')} ${chalk.yellow.italic('foo')}
+` ]
     }
 ];
 
 const testFunction = async (t, data) => {
-    t.is(await printResults(data.messages, data.color), data.expectedResult);
-};
+    const messagesStream = Readable.from(data.messages); // eslint-disable-line node/no-unsupported-features/node-builtins
+    const stream = new TextStream({
+        colorized: data.color,
+        loadImages: false
+    });
+    const result = await toArray(messagesStream.pipe(stream));
 
-testData.forEach((data) => {
-    test(data.name, testFunction, data);
-});
+    t.deepEqual(await result, data.expectedResult);
+};
+testFunction.title = (title, data) => `${title}: rich ${data.name}`;
+
+const testJSONStream = async (t, data) => {
+    const messagesStream = Readable.from(data.messages); // eslint-disable-line node/no-unsupported-features/node-builtins
+    const stream = new JSONStream();
+    const result = await toArray(messagesStream.pipe(stream));
+    const expectedResult = data.messages.map((message, index) => {
+        const stringified = JSON.stringify(message);
+        const prefix = index === 0 ? '[' : ',';
+        return prefix + stringified;
+    });
+    if(expectedResult.length === 0) {
+        expectedResult.push('[]');
+    }
+    else {
+        expectedResult.push(']');
+    }
+
+    t.deepEqual(await result, expectedResult);
+};
+testJSONStream.title = (title, data) => `${title}: json ${data.name}`;
+
+for(const data of testData) {
+    test('formatting', [
+        testFunction,
+        testJSONStream
+    ], data);
+}
 
 test.todo("Badges");

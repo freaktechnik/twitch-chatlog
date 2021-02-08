@@ -2,7 +2,7 @@
 "use strict";
 
 const iterm2Version = require('iterm2-version'),
-    { once } = require('events'),
+    { pipeline } = require('stream'),
     MIN_ARGS = 1,
     MAJOR_VERSION = 0,
     MIN_ITERM_VERSION = 3,
@@ -28,12 +28,6 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
             describe: 'Twitch application client ID',
             type: 'string',
             nargs: 1
-        })
-        .option('p', {
-            alias: 'progress',
-            default: true,
-            describe: 'Show a progress bar while loading the log. Disabled when the raw option is enabled.',
-            type: 'boolean'
         })
         .option('l', {
             alias: 'length',
@@ -75,30 +69,43 @@ vod_id is the ID from the VOD URL, optionally prefixed with v (deprecated).`)
         .example("$0 -c --end 00:15:00 79240813", "Load the first 15 minutes of chat for the VOD and colorize the output.")
         .example("$0 79240813 --no-progress --end=2016-07-20T20:37:44+0000", "Load the chat log until the given date and don't show a progress bar."),
     program = require('../lib'),
-
-    showProgress = argv.progress && !argv.raw;
+    {
+        TextStream,
+        JSONStream
+    } = require('../lib/format');
 
 async function run() {
-    const results = await program.getChatlog({
+    const resultStream = await program.getChatlog({
         vodId: argv._.shift(),
         clientId: argv.clientId,
-        progress: showProgress,
         start: argv.start,
         end: argv.end,
         length: argv.length
     });
+    let formatter;
     if(!argv.raw) {
-        const formatted = await program.printResults(results, argv.color, showProgress, argv.images, argv.clientId);
-        console.log(formatted); // eslint-disable-line no-console
-        return;
+        formatter = new TextStream({
+            colorized: argv.color,
+            loadImages: argv.images,
+            clientId: argv.clientId
+        });
     }
-    const bfj = require('bfj'),
-        stream = bfj
-            .streamify(results, {
-                yieldRate: Number.MAX_SAFE_INTEGER
-            })
-            .pipe(process.stdout);
-    await once(stream, 'end');
+    else {
+        formatter = new JSONStream();
+    }
+    return new Promise((resolve, reject) => {
+        pipeline(resultStream,
+            formatter,
+            process.stdout,
+            (error) => {
+                if(error) {
+                    reject(error);
+                }
+                else {
+                    resolve();
+                }
+            });
+    });
 }
 
 run()

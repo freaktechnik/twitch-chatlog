@@ -25,7 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",
-    "iterm2-version": "^4.2.0",
+    "iterm2-version": "^5.0.0",
     "node-fetch": "^2.6.1",
     "string-replace-async": "^2.0.0",
     "term-img": "^5.0.0",
